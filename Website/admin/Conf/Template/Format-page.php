@@ -13,4 +13,12 @@ include('./Conf/Function/functions.php');
 include('./Conf/Template/head-html.php');
 include('./Conf/Template/navbar.php');
 include('./Page/Tableaudebord-content.php');
+?>
+
+
+
+
+<?php
+
 include('./Conf/Template/end-html.php');
+?>

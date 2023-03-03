@@ -130,3 +130,128 @@ body {
 }
 
 /* End of navbar and sidebar */
+
+/* Page Tableaudebord */
+.card {
+  margin-bottom: 20px;
+  border: 0px;
+  border-radius: 20px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+.card-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.card-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.enlarge > span {
+  font-size: 30px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.card-category > .card-heading {
+  border-color: #2f806d;
+  color: white;
+  background-color: #2f806d;
+}
+
+.card-category > a {
+  color: #2f806d;
+}
+
+.card-category > a:hover {
+  color: #2adcb3;
+}
+
+.card-carte > .card-heading {
+  border-color: #a27b32;
+  color: white;
+  background-color: #a27b32;
+}
+
+.card-carte > a {
+  color: #a27b32;
+}
+
+.card-carte > a:hover {
+  color: #da9e2e;
+}
+
+.card-menu > .card-heading {
+  border-color: #772f80;
+  color: white;
+  background-color: #772f80;
+}
+
+.card-menu > a {
+  color: #772f80;
+}
+
+.card-menu > a:hover {
+  color: #bd30d0;
+}
+
+.card-galery > .card-heading {
+  border-color: #2f5e80;
+  color: white;
+  background-color: #2f5e80;
+}
+
+.card-galery > a {
+  color: #2f5e80;
+}
+
+.card-galery > a:hover {
+  color: #3993d4;
+}
+
+.card-client > .card-heading {
+  border-color: #83193e;
+  color: white;
+  background-color: #83193e;
+}
+
+.card-client > a {
+  color: #83193e;
+}
+
+.card-client > a:hover {
+  color: #d9185b;
+}
+
+.card-reservation > .card-heading {
+  border-color: #a23232;
+  color: white;
+  background-color: #a23232;
+}
+
+.card-reservation > a {
+  color: #a23232;
+}
+
+.card-reservation > a:hover {
+  color: #e71f1f;
+}
