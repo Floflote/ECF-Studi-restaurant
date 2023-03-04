@@ -129,8 +129,6 @@ body {
   border-color: black;
 }
 
-/* End of navbar and sidebar */
-
 /* Page Tableaudebord */
 .card {
   margin-bottom: 20px;
@@ -255,3 +253,5 @@ body {
 .card-reservation > a:hover {
   color: #e71f1f;
 }
+
+/* Page categories */
