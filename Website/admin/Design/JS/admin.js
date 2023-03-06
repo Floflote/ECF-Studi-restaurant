@@ -54,3 +54,5 @@ $("#delete_category_bttn").click(function () {
     },
   });
 });
+
+// ********** Page Carte du restaurant **********
