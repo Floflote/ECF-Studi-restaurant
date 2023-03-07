@@ -114,8 +114,9 @@ $categories = $statementcat->fetchAll();
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" style="border-radius: 30px;"
                           data-bs-dismiss="modal">Annuler</button>
-                        <button type="button" data-id="<?php echo $category['category_id']; ?>" class="btn btn-warning"
-                          id="delete_category_bttn" style="border-radius: 30px; color: white;">Supprimer</button>
+                        <button type="button" data-id="<?php echo $category['category_id']; ?>"
+                          class="btn btn-warning delete_category_btn"
+                          style="border-radius: 30px; color: white;">Supprimer</button>
                       </div>
                     </div>
                   </div>

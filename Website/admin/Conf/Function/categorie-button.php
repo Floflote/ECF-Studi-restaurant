@@ -26,6 +26,6 @@ if (isset($_POST['do']) && $_POST['do'] == "Add") {
 if (isset($_POST['do']) && $_POST['do'] == "Delete") {
   $category_id = $_POST['category_id'];
 
-  $statementdelete = $pdo->prepare("DELETE from category where category_id = ?");
+  $statementdelete = $pdo->prepare("DELETE FROM category WHERE category_id = ?");
   $statementdelete->execute(array($category_id));
 }
