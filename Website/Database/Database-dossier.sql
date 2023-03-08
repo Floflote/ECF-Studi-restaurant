@@ -17,8 +17,8 @@ CREATE TABLE website_setting
 CREATE TABLE picture
 (
   picture_id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  picure_name VARCHAR(100) NOT NULL,
-  picure VARCHAR(255) NOT NULL
+  picture_name VARCHAR(100) NOT NULL,
+  picture_image VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE menu

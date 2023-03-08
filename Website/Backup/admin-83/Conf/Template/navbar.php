@@ -1,11 +1,14 @@
 <header class="navbar sticky-top flex-md-nowrap p-2 shadow" data-bs-theme="white" style="background-color: white;">
-  <a class="navbar-brand col-md-4 col-lg-3 me-0 px-3" href="./Tableaudebord.php">Panneau administrateur</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand col-md-4 col-lg-3 me-0 px-3" href="#">Panneau administrateur</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed custom-toggler" type="button"
+    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+    aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <ul class="nav nav-pills">
     <li class="nav-item dropdown infosite me-3">
-      <button class="nav-link dropdown-toggle btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="nav-link dropdown-toggle btn" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
         <i class="fa-sharp fa-solid fa-sitemap" style="color: white;"></i>
         <span style="color: white;">Information du site</span>
       </button>
@@ -61,13 +64,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./Menu.php">
+            <a class="nav-link" href="#">
               <i class="fa-sharp fa-solid fa-utensils"></i>
               Menus
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./Galerie.php">
+            <a class="nav-link" href="#">
               <i class="fa-sharp fa-solid fa-camera"></i>
               Galerie
             </a>

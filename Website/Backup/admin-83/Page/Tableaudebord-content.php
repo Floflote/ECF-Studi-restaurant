@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <a href="./Menu.php">
+      <a href="AREMPLIR************">
         <div class="card-footer">
           <span class="pull-left">Voir les détails</span>
           <span class="pull-right"><i class="fa-sharp fa-solid fa-circle-chevron-right"></i></span>
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <a href="./Galerie.php">
+      <a href="AREMPLIR************">
         <div class="card-footer">
           <span class="pull-left">Voir les détails</span>
           <span class="pull-right"><i class="fa-sharp fa-solid fa-circle-chevron-right"></i></span>
