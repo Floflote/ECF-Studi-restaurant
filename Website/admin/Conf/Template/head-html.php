@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, , initial-scale=1.0" />
   <meta name="description" content=<?php echo $description; ?> />
   <meta name="keywords" content=<?php echo $keywords; ?> />
-  <meta name="author" content="FloFlote">
+  <meta name="author" content="FloFlote" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <meta name="robots" content="noindex, nofollow" />
   <title><?php echo $title; ?></title>
 
   <!-- Framework CSS -->
