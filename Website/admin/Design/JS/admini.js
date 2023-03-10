@@ -84,29 +84,29 @@ $(".delete_product_bttn").click(function () {
 
 /* Ajout d'une image */
 
-function readURL(input) {
+function readURL_Add_Product(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      $("#add_product_picturePreview").css(
+      $("#add_product_pictPreview").css(
         "background-image",
         "url(" + e.target.result + ")"
       );
-      $("#add_product_picturePreview").hide();
-      $("#add_product_picturePreview").fadeIn(650);
+      $("#add_product_pictPreview").hide();
+      $("#add_product_pictPreview").fadeIn(650);
     };
 
     reader.readAsDataURL(input.files[0]);
   }
 }
 
-$("#add_product_pictureUpload").change(function () {
-  readURL(this);
+$("#add_product_pictUpload").change(function () {
+  readURL_Add_Product(this);
 });
 
 /* Modification d'une image */
 
-function readURL_Edit_Menu(input) {
+function readURL_Edit_Product(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -123,7 +123,7 @@ function readURL_Edit_Menu(input) {
 }
 
 $("#modify_product_pictureUpload").change(function () {
-  readURL_Edit_Menu(this);
+  readURL_Edit_Product(this);
 });
 
 /* Page Menu du restaurant */
@@ -182,7 +182,7 @@ $(".delete_picture_bttn").click(function () {
 
 /* Ajout d'une image */
 
-function readURL(input) {
+function readURL_Gal(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -199,7 +199,7 @@ function readURL(input) {
 }
 
 $("#add_gallery_pictureUpload").change(function () {
-  readURL(this);
+  readURL_Gal(this);
 });
 
 /* Page Clients */
