@@ -168,7 +168,7 @@ $(".delete_picture_bttn").click(function () {
       do: dataDo,
     },
     success: function (message) {
-      swal("Supprimé", "L'image' a bien été supprimée !", "success").then(
+      swal("Supprimée", "L'image' a bien été supprimée !", "success").then(
         (value) => {
           window.location.replace("Galerie.php");
         }
@@ -200,4 +200,56 @@ function readURL(input) {
 
 $("#add_gallery_pictureUpload").change(function () {
   readURL(this);
+});
+
+/* Page Clients */
+/* Suppression d'un client */
+
+$(".delete_customer_btn").click(function () {
+  var customer_id = $(this).data("id");
+  var dataDo = "Delete";
+
+  $.ajax({
+    url: "./Conf/Function/clients-button.php",
+    method: "POST",
+    data: { customer_id: customer_id, do: dataDo },
+    success: function (data) {
+      swal(
+        "Supprimé",
+        "Le compte client a bien été supprimé !",
+        "success"
+      ).then((value) => {
+        window.location.replace("Clients.php");
+      });
+    },
+    error: function (xhr, status, error) {
+      alert("Une erreur est survenue lors de la requête. Veuillez réessayer.");
+    },
+  });
+});
+
+/* Page Reservation */
+/* Suppression d'une reservation */
+
+$(".delete_reservation_btn").click(function () {
+  var reservation_id = $(this).data("id");
+  var dataDo = "Delete";
+
+  $.ajax({
+    url: "./Conf/Function/reservation-button.php",
+    method: "POST",
+    data: { reservation_id: reservation_id, do: dataDo },
+    success: function (data) {
+      swal(
+        "Supprimée",
+        "La réservation a bien été supprimée !",
+        "success"
+      ).then((value) => {
+        window.location.replace("Reservation.php");
+      });
+    },
+    error: function (xhr, status, error) {
+      alert("Une erreur est survenue lors de la requête. Veuillez réessayer.");
+    },
+  });
 });

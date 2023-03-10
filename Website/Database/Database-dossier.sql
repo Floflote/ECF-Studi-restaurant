@@ -10,8 +10,18 @@ CREATE TABLE admin
 CREATE TABLE website_setting
 (
   setting_id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  setting_name VARCHAR(255) NOT NULL,
-  setting_value VARCHAR(255) NOT NULL
+  setting_restaurant_name VARCHAR(255) NOT NULL,
+  setting_restaurant_mail VARCHAR(255) NOT NULL,
+  setting_restaurant_phone VARCHAR(255) NOT NULL,
+  setting_restaurant_address VARCHAR(255) NOT NULL,
+  setting_restaurant_monday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_tuesday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_wednesday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_thursday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_friday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_saturday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_sunday_hours VARCHAR(255) NOT NULL,
+  setting_restaurant_nbcustomers INT(3) NOT NULL
 );
 
 CREATE TABLE picture
@@ -72,16 +82,28 @@ CREATE TABLE reservation
 
 ALTER TABLE reservation MODIFY customer_id CHAR(36);
 
-INSERT INTO website_setting (setting_name, setting_value) VALUES 
-("restaurant_name", "Quai Antique"),
-("restaurant_mail", "quai.antique@mail.com"), 
-("restaurant_phone", "0606060606"),
-("restaurant_place", "1 rue Martin, 00001 Matinville"),
-("monday_hours", "12h00 - 14h00 et 19h00 - 22h00"),
-("tuesday_hours", "12h00 - 14h00 et 19h00 - 22h00"),
-("wednesday_hours", "Fermé"),
-("thursday_hours", "12h00 - 14h00 et 19h00 - 22h00"),
-("friday_hours", "12h00 - 14h00 et 19h00 - 22h00"),
-("saturday_hours", "19h00 - 23h00"),
-("sunday_hours", "12h00-14h00"),
-("nb_place", "20");
+INSERT INTO website_setting 
+  (setting_restaurant_name, 
+  setting_restaurant_mail, 
+  setting_restaurant_phone, 
+  setting_restaurant_address, 
+  setting_restaurant_monday_hours, 
+  setting_restaurant_tuesday_hours, 
+  setting_restaurant_wednesday_hours, 
+  setting_restaurant_thursday_hours, 
+  setting_restaurant_friday_hours, 
+  setting_restaurant_saturday_hours, 
+  setting_restaurant_sunday_hours, 
+  setting_restaurant_nbcustomers) VALUES 
+("Quai Antique", 
+"quai.antique@mail.com", 
+"0606060606", 
+"1 rue Martin - 00001 Martinville", 
+"12h00 - 14h00 et 19h00 - 22h00", 
+"12h00 - 14h00 et 19h00 - 22h00",
+"Fermé",
+"12h00 - 14h00 et 19h00 - 22h00",
+"12h00 - 14h00 et 19h00 - 22h00",
+"19h00 - 23h00",
+"12h00 - 14h00", 
+20);

@@ -115,7 +115,7 @@
           </div>
         </div>
       </div>
-      <a href="AREMPLIR************">
+      <a href="./Clients.php">
         <div class="card-footer">
           <span class="pull-left">Voir les détails</span>
           <span class="pull-right"><i class="fa-sharp fa-solid fa-circle-chevron-right"></i></span>
@@ -140,7 +140,7 @@
           </div>
         </div>
       </div>
-      <a href="AREMPLIR************">
+      <a href="./Reservation.php">
         <div class="card-footer">
           <span class="pull-left">Voir les détails</span>
           <span class="pull-right"><i class="fa-sharp fa-solid fa-circle-chevron-right"></i></span>
