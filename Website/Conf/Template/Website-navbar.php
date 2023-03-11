@@ -1,107 +1,78 @@
-<header class="navbar sticky-top flex-md-nowrap p-2 shadow" data-bs-theme="white" style="background-color: white;">
-  <a class="navbar-brand col-md-4 col-lg-3 me-0 px-3" href="./Tableaudebord.php">Panneau administrateur</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed custom-toggler" type="button"
-    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <ul class="nav nav-pills">
-    <li class="nav-item dropdown infosite me-3">
-      <button class="nav-link dropdown-toggle btn" href="#" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        <i class="fa-sharp fa-solid fa-sitemap" style="color: white;"></i>
-        <span style="color: white;">Information du site</span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./Administrateur.php">
-            <i class="fa-sharp fa-solid fa-user-gear"></i>
-            Paramètres du site</a>
-        </li>
-        <li><a class="dropdown-item" href="#">
-            <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
-            Se déconnecter</a>
-        </li>
-      </ul>
-    </li>
-    <li class="gosite">
-      <a class="nav-link" href="../" target="_blank">
-        <i class="fa-sharp fa-solid fa-eye" style="color: white;"></i>
-        <span style="color: white;">Aller sur le site</span>
+<header>
+  <nav class="navbar navbar-expand-lg bd-navbar sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand p-0 me-0 me-lg-2" href="#">
+        <img src="./Picture/Logo.svg" alt="Logo Quai Antique" class="navbar-logo" />
       </a>
-    </li>
-  </ul>
-</header>
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
-        <h6 class="sidebar-heading d-flex justify-content-center align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Informations principales</span>
-        </h6>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./Tableaudebord.php">
-              <i class="fa-sharp fa-solid fa-chart-area"></i>
-              Tableau de bord
-            </a>
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end d-lg-flex" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Quai Antique</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body justify-content-around">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sectioncarte">Carte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sectionmenu">Menus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sectiongalerie">Galerie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sectioncontact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropstart m-3">
+        <button class="btn reserve-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <?php
+            /* Ne pas oublier de mettre le systeme de connexion */
+            $user_connected = 0;
+            if ($user_connected == 1) {
+              echo "Bonjour !";
+            } else {
+              echo '<a class="dropdown-item fw-bold" href="./Seconnecter.php">';
+              echo '<i class="fa-solid fa-door-open"></i>';
+              echo "Se connecter";
+              echo "</a>";
+            }
+            ?>
           </li>
-          <li class="border-top my-3"></li>
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-center align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Données du restaurant</span>
-        </h6>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="./Categories.php">
-              <i class="fa-sharp fa-solid fa-square-poll-horizontal"></i>
-              Catégories
-            </a>
+          <li>
+            <hr class="dropdown-divider">
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Carterestaurant.php">
-              <i class="fa-sharp fa-solid fa-burger"></i>
-              Carte du restaurant
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Menu.php">
-              <i class="fa-sharp fa-solid fa-utensils"></i>
-              Menus
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Galerie.php">
-              <i class="fa-sharp fa-solid fa-camera"></i>
-              Galerie
-            </a>
-          </li>
-          <li class="border-top my-3"></li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-center align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Comptes</span>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="./Clients.php">
-              <i class="fa-sharp fa-solid fa-address-card"></i>
-              Clients
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Reservation.php">
-              <i class="fa-sharp fa-solid fa-calendar-days"></i>
-              Réservation
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Administrateur.php">
-              <i class="fa-sharp fa-solid fa-user-gear"></i>
-              Administrateur
+          <li>
+            <a class="dropdown-item fw-bold" href="#">
+              <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
+              Se déconnecter
             </a>
           </li>
         </ul>
       </div>
-    </nav>
+      <div class="m-3">
+        <a href="./Reserve-table.php" target="_blank" class="btn reserve-btn">Réserver une table</a>
+      </div>
 
-    <main class="col-md-8 ms-sm-auto col-lg-9 px-md-4">
+    </div>
+  </nav>
+</header>
+
+<!-- Scroll to top -->
+<div class="scroll_to_top">
+  <a href="#"><i class="fa-sharp fa-solid fa-circle-chevron-up fa-2xl"></i></a>
+</div>
