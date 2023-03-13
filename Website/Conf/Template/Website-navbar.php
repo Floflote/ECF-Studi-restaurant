@@ -1,15 +1,13 @@
-<header>
-  <nav class="navbar navbar-expand-lg bd-navbar sticky-top">
+<header class="sticky-top" style="background-color: white;">
+  <nav class="navbar navbar-expand-lg bd-navbar">
     <div class="container-fluid">
-      <a class="navbar-brand p-0 me-0 me-lg-2" href="#">
+      <a class="navbar-brand p-0 me-0 me-lg-2 my-4" href="#">
         <img src="./Picture/Logo.svg" alt="Logo Quai Antique" class="navbar-logo" />
       </a>
-      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-end d-lg-flex" tabindex="-1" id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end d-lg-flex" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Quai Antique</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -76,3 +74,5 @@
 <div class="scroll_to_top">
   <a href="#"><i class="fa-sharp fa-solid fa-circle-chevron-up fa-2xl"></i></a>
 </div>
+
+<main>

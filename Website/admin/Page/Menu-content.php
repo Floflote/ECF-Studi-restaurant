@@ -322,7 +322,7 @@ elseif ($task == 'Add') {
               <label for="menu_s_price">Prix de la formule 2 (€)</label>
               <input type="text" class="form-control"
                 value="<?php echo (isset($_POST['menu_s_price'])) ? htmlspecialchars($_POST['menu_s_price']) : '' ?>"
-                placeholder="40.00" name="menu_s_price">
+                placeholder="40.00" name="menu_s_price" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
             </div>
 
             <button type="submit" name="add_new_menu" class="btn btn-info float-end"
