@@ -1,7 +1,7 @@
 <header class="sticky-top" style="background-color: white;">
   <nav class="navbar navbar-expand-lg bd-navbar">
     <div class="container-fluid">
-      <a class="navbar-brand p-0 me-0 me-lg-2 my-4" href="#">
+      <a class="navbar-brand p-0 me-0 me-lg-2 my-4" href="index.php">
         <img src="./Picture/Logo.svg" alt="Logo Quai Antique" class="navbar-logo" />
       </a>
       <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -44,10 +44,12 @@
             if ($user_connected == 1) {
               echo "Bonjour !";
             } else {
-              echo '<a class="dropdown-item fw-bold" href="./Seconnecter.php">';
-              echo '<i class="fa-solid fa-door-open"></i>';
-              echo "Se connecter";
-              echo "</a>";
+            ?>
+              <a class="dropdown-item fw-bold" href="./Seconnecter.php">
+                <i class="fa-solid fa-door-open"></i>
+                Se connecter
+              </a>
+            <?php
             }
             ?>
           </li>
@@ -63,7 +65,7 @@
         </ul>
       </div>
       <div class="m-3">
-        <a href="./Reserve-table.php" target="_blank" class="btn reserve-btn">Réserver une table</a>
+        <a href="./Reserve-table.php" class="btn reserve-btn">Réserver une table</a>
       </div>
 
     </div>

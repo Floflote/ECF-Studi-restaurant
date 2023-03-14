@@ -261,3 +261,13 @@ h6 {
   transform: translate(-50%, -50%);
   text-transform: uppercase;
 }
+
+/* Page reservation */
+.links {
+  color: #a4872c;
+  transition: all 0.3s ease-in-out;
+}
+
+.links:hover {
+  color: #726023;
+}
