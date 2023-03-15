@@ -107,3 +107,5 @@ INSERT INTO website_setting
 "19h00 - 23h00",
 "12h00 - 14h00", 
 20);
+
+ALTER TABLE customer ADD customer_nbconv INT(2) NOT NULL;

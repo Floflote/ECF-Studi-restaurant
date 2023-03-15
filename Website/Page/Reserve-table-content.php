@@ -55,7 +55,6 @@
         echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
       }
     }
-
     ?>
     <div>
       <h5>
@@ -65,7 +64,7 @@
 
     <!-- Form ask nb customers -->
 
-    <form method="POST" action="Reserve-table.php">
+    <form method="POST">
       <div class="row">
 
         <div class="col-md-3 col-xs-6">
@@ -108,7 +107,8 @@
 
         <div class="col-lg-3 col-md-3col-xs-6">
           <div style="margin-bottom: 1rem;">
-            <label for="check_availability" style="visibility: hidden;">Vérification de tables disponibles</label>
+            <label for="check_availability_submit" style="visibility: hidden;">Vérification de tables
+              disponibles</label>
             <input type="submit" class="form-control btn reserve-btn ms-3" style="text-transform: uppercase;"
               name="check_availability_submit">
           </div>
@@ -157,25 +157,24 @@
       } else {
       ?>
 
-    <form method="POST">
+    <form method="POST" id="formresatab" class="needs-validation" novalidate>
       <input type="hidden" name="selected_date" value="<?php echo $selected_date ?>">
       <input type="hidden" name="selected_hour" value="<?php echo $selected_hour ?>">
       <input type="hidden" name="reservation_nbcustomer" value="<?php echo $nbcustomer ?>">
 
       <div>
+
+        <!-- Email -->
+
         <div class="row" style="margin-bottom: 1rem;">
-
-          <!-- Email -->
-
           <div class="col-sm-6">
-            <label for="customer_email">
+            <label for="customer_email" class="form-label">
               <h5>Votre adresse mail</h5>
             </label>
-            <input type="email" name="customer_email" id="customer_email"
-              oninput="document.getElementById('required_email').style.display = 'none'" class="form-control"
+            <input type="email" name="customer_email" id="customer_email" class="form-control"
               placeholder="monmail@mail.com" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9^,_@.-]/g,'');"
               required>
-            <div class="invalid-feedback" id="required_email">
+            <div class="invalid-feedback">
               Format de l'email invalide !
             </div>
           </div>
@@ -185,16 +184,30 @@
 
         <div class="row" style="margin-bottom: 1rem;">
           <div class="col-sm-6">
-            <label for="customer_allergen">
+            <label for="customer_allergen" class="form-label">
               <h5>Des allergènes à signaler ?</h5>
             </label>
-            <textarea name="customer_allergen" class="form-control"
-              oninput="document.getElementById('required_allerg').style.display = 'none'"
-              onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" required></textarea>
-            <div class="invalid-feedback" id="required_allerg">
+            <textarea name="customer_allergen" class="form-control" id="customer_allergen"
+              onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255"
+              required></textarea>
+            <div class="invalid-feedback">
               Vous devez précisez vos allergènes. Si aucun, mettre Aucun !
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+
+      <div class="col-12 mb-4">
+        <div class="form-check"></div>
+        <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
+        <label class="form-check-label" for="gridCheck">
+          Veuillez accepter d'être contacté(e) par votre adresse email
+        </label>
+        <div class="invalid-feedback">Veuillez accepter la condition.</div>
+        <div class="valid-feedback">
+          J'accepte d'être contacté(é) par mon adresse mail
         </div>
       </div>
 
