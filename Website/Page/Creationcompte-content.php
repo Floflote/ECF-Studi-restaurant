@@ -6,7 +6,8 @@
     background-repeat: no-repeat;
     background-size: cover;">
   <div class="text-center p-5">
-    <h1 style="font-size: 60px; color: white; text-transform: uppercase;">
+    <h1
+      style="font-size: 60px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px;">
       Création de compte
     </h1>
   </div>
@@ -17,36 +18,7 @@
 
 <section class="create_compte_section p-5">
   <div class="container-fluid text-center">
-    <?php
-    if (isset($_POST['submit_create_compte_form']) && ((test_input($_POST['creaco_password'])) == (test_input($_POST['creaco_password_conf']))) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-      $creaco_mail = test_input($_POST['creaco_email']);
-      $creaco_password = test_input($_POST['creaco_password']);
-      $creaco_nbcustomer = $_POST['creaco_nbcustomer'];
-      $creaco_allerg = test_input($_POST['creaco_allergen']);
-
-      try {
-        $statementaddcompt = $pdo->prepare("INSERT INTO customer (customer_id, customer_mail, customer_password, customer_nbconv, customer_allergen) VALUES (UUID(), :comptemail, :comptpassword, :comptnbconv, :comptallergen)");
-        $statementaddcompt->bindValue(':comptemail', $creaco_mail, PDO::PARAM_STR);
-        $statementaddcompt->bindValue(':comptpassword', password_hash($creaco_password, PASSWORD_BCRYPT), PDO::PARAM_STR);
-        $statementaddcompt->bindValue(':comptnbconv', $creaco_nbcustomer, PDO::PARAM_INT);
-        $statementaddcompt->bindValue(':comptallergen', $creaco_allerg, PDO::PARAM_STR);
-        $statementaddcompt->execute();
-    ?>
-
-    <!-- Ajout du menu validé -->
-
-    <script type="text/javascript">
-    swal("Compte créé", "Vous pouvez dès maintenant l'utiliser !", "success").then((value) => {
-      window.location.replace("Creationcompte.php");
-    });
-    </script>
-
-    <?php
-      } catch (Exception $e) {
-        echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
-      }
-    }
-    ?>
+    <h1>Créer son compte</h1>
     <form method="POST" id="formcreaco" class="needs-validation" action="Creationcompte.php"
       enctype="multipart/form-data" novalidate>
 
@@ -57,21 +29,9 @@
         <input type="email" class="form-control" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+"
           value="<?php echo (isset($_POST['creaco_email'])) ? htmlspecialchars($_POST['creaco_email']) : '' ?>"
           placeholder="monmail@mail.com" name="creaco_email" id="creaco_email" required>
-        <?php
-        $check_creaco_form = 0;
-        /*
-        if (isset($_POST['submit_create_compte_form'])) {
-          if (empty(test_input($_POST['creaco_email']))) {
-        ?>
         <div class="invalid-feedback">
-          Vous devez entrer une adresse mail !
+          Vous devez entrer une adresse mail valide !
         </div>
-        <?php
-            $check_creaco_form = 1;
-          }
-        }
-        */
-        ?>
       </div>
 
       <!-- Password -->
@@ -88,20 +48,9 @@
           pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"
           value="<?php echo (isset($_POST['creaco_password'])) ? htmlspecialchars($_POST['creaco_password']) : '' ?>"
           placeholder="************" name="creaco_password" id="creaco_password" required>
-        <?php
-        /*
-        if (isset($_POST['submit_create_compte_form'])) {
-          if (empty(test_input($_POST['creaco_password']))) {
-        ?>
         <div class="invalid-feedback">
-          Vous devez entrer un mot de passe !
+          Vous devez entrer un mot de passe valide !
         </div>
-        <?php
-            $check_creaco_form = 1;
-          }
-        }
-        */
-        ?>
       </div>
 
       <!-- Confirm password -->
@@ -114,27 +63,9 @@
           pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"
           value="<?php echo (isset($_POST['creaco_password_conf'])) ? htmlspecialchars($_POST['creaco_password_conf']) : '' ?>"
           placeholder="************" name="creaco_password_conf" id="creaco_password_conf" required>
-        <?php
-        /*
-        if (isset($_POST['submit_create_compte_form'])) {
-          if (empty(test_input($_POST['creaco_password']))) {
-        ?>
         <div class="invalid-feedback">
-          Vous devez entrer un mot de passe !
+          Vous devez entrer un mot de passe valide !
         </div>
-        <?php
-            $check_creaco_form = 1;
-          } elseif ((test_input($_POST['creaco_password'])) !== (test_input($_POST['creaco_password_conf']))) {
-            ?>
-        <div class="invalid-feedback">
-          Le mot de passe est différent. Veuillez réessayer !
-        </div>
-        <?php
-            $check_creaco_form = 1;
-          }
-        }
-        */
-        ?>
       </div>
 
       <!-- Nb customer -->
@@ -165,21 +96,10 @@
         </label>
         <textarea name="creaco_allergen" class="form-control" id="creaco_allergen"
           onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255"
-          required></textarea>
-        <?php
-        /*
-        if (isset($_POST['submit_create_compte_form'])) {
-          if (empty(test_input($_POST['creaco_allergen']))) {
-        ?>
+          required><?php echo (isset($_POST['creaco_allergen'])) ? htmlspecialchars($_POST['creaco_allergen']) : ''; ?></textarea>
         <div class="invalid-feedback">
-          Vous devez précisez vos allergènes. Si aucun, mettre Aucun !
+          Ce champ ne doit pas être vide ! Si vous n'en avez pas, mettre "Aucun".
         </div>
-        <?php
-            $check_creaco_form = 1;
-          }
-        }
-        */
-        ?>
       </div>
 
 
@@ -197,13 +117,79 @@
         </div>
       </div>
 
+      <?php
+
+      /* Verify passwords are the same */
+
+      if (isset($_POST['submit_create_compte_form']) && ((test_input($_POST['creaco_password'])) !== (test_input($_POST['creaco_password_conf']))) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+      ?>
+      <div style="color: #b02a37; margin-bottom: 1rem;">
+        Attention, le mot de passe est différent !
+      </div>
+      <?php
+
+        /* Passwords are the same */
+
+      } elseif (isset($_POST['submit_create_compte_form']) && ((test_input($_POST['creaco_password'])) == (test_input($_POST['creaco_password_conf']))) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+        $creaco_mail = test_input($_POST['creaco_email']);
+        $creaco_password = test_input($_POST['creaco_password']);
+        $creaco_nbcustomer = $_POST['creaco_nbcustomer'];
+        $creaco_allerg = test_input($_POST['creaco_allergen']);
+
+        /* Verify mail does not already exist */
+        /* Check mail in database */
+        $statementcustomail = $pdo->prepare("SELECT customer_mail FROM customer");
+        $statementcustomail->execute();
+        $verifycustomails = $statementcustomail->fetchAll();
+        $mailexist = 0;
+        $testmail = $creaco_mail;
+
+        foreach ($verifycustomails as $verifycustomail) {
+          if ($testmail == $verifycustomail['customer_mail']) {
+            $mailexist = 1;
+          }
+        }
+
+        if ($mailexist == 1) {
+        ?>
+      <div style="color: #b02a37; margin-bottom: 1rem;">
+        Votre email n’est pas autorisé à s’inscrire !
+      </div>
+      <?php
+        } else {
+          try {
+            $statementaddcompt = $pdo->prepare("INSERT INTO customer (customer_id, customer_mail, customer_password,
+          customer_nbconv, customer_allergen) VALUES (UUID(), :comptemail, :comptpassword, :comptnbconv, :comptallergen)");
+            $statementaddcompt->bindValue(':comptemail', $creaco_mail, PDO::PARAM_STR);
+            $statementaddcompt->bindValue(':comptpassword', password_hash($creaco_password, PASSWORD_BCRYPT), PDO::PARAM_STR);
+            $statementaddcompt->bindValue(':comptnbconv', $creaco_nbcustomer, PDO::PARAM_INT);
+            $statementaddcompt->bindValue(':comptallergen', $creaco_allerg, PDO::PARAM_STR);
+            $statementaddcompt->execute();
+          ?>
+
+      <!-- Ajout du menu validé -->
+
+      <script type="text/javascript">
+      swal("Compte créé", "Vous pouvez dès maintenant l'utiliser !", "success").then((value) => {
+        window.location.replace("Espaceconnexion.php");
+      });
+      </script>
+
+      <?php
+          } catch (Exception $e) {
+            echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+          }
+        }
+      }
+      ?>
+
       <div style="margin-bottom: 1rem;">
         <button type="submit" name="submit_create_compte_form" class="btn reserve-btn ms-3"
           style="text-transform: uppercase;">
           Créer le compte
         </button>
       </div>
-
     </form>
 
   </div>
+</section>

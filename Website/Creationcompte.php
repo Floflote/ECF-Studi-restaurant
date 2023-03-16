@@ -3,7 +3,7 @@
 session_start();
 
 //Variables
-$description = "Créer votre compte client afin de gagner du temsp lors d'une réservation";
+$description = "Créer votre compte client afin de gagner du temps lors d'une réservation";
 $keywords = "restaurant, gastronomique, plats, menus, reservation, manger, diner, dejeuner, produits, biologique, écologique, compte, creation";
 $title = "Page de création de compte du restaurant Quai Antique";
 

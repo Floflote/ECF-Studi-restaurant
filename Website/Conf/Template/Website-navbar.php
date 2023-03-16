@@ -4,10 +4,12 @@
       <a class="navbar-brand p-0 me-0 me-lg-2 my-4" href="index.php">
         <img src="./Picture/Logo.svg" alt="Logo Quai Antique" class="navbar-logo" />
       </a>
-      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-end d-lg-flex" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end d-lg-flex" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Quai Antique</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -45,10 +47,10 @@
               echo "Bonjour !";
             } else {
             ?>
-              <a class="dropdown-item fw-bold" href="./Seconnecter.php">
-                <i class="fa-solid fa-door-open"></i>
-                Se connecter
-              </a>
+            <a class="dropdown-item fw-bold" href="./Espaceconnexion.php">
+              <i class="fa-solid fa-door-open"></i>
+              Se connecter
+            </a>
             <?php
             }
             ?>
