@@ -85,16 +85,16 @@
           <div style="margin-bottom: 1rem;">
             <label for="reservation_nbcustomer">Nombre de convives</label>
             <select class="form-select" aria-label="Select nombre convives" name="reservation_nbcustomer">
-              <option value="1" <?php echo (isset($_POST['reservation_nbcustomer'])) ? "selected" : "";  ?>>
+              <option value="1" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 1)) ? "selected" : "";  ?>>
                 1 personne
               </option>
-              <option value="2" <?php echo (isset($_POST['reservation_nbcustomer'])) ? "selected" : "";  ?>>
+              <option value="2" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 2)) ? "selected" : "";  ?>>
                 2 personnes
               </option>
-              <option value="3" <?php echo (isset($_POST['reservation_nbcustomer'])) ? "selected" : "";  ?>>
+              <option value="3" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 3)) ? "selected" : "";  ?>>
                 3 personnes
               </option>
-              <option value="4" <?php echo (isset($_POST['reservation_nbcustomer'])) ? "selected" : "";  ?>>
+              <option value="4" <?php echo (isset($nbcustomers_co_session) && ($nbcustomers_co_session == 4)) ? "selected" : "";  ?>>
                 4 personnes
               </option>
             </select>
@@ -119,7 +119,6 @@
       $weekday = strtolower(date('l', strtotime($selected_date))); /* monday etc */
       $selected_hour = $_POST['reservation_hour'];
       $nbcustomer = $_POST['reservation_nbcustomer'];
-      $selected_hour = date('H:i', strtotime($selected_hour) + 60 * 60);
 
       $statement_website_set = $pdo->prepare('SELECT * FROM website_setting');
       $statement_website_set->execute();
@@ -166,7 +165,7 @@
                 <label for="customer_email" class="form-label">
                   <h5>Votre adresse mail</h5>
                 </label>
-                <input type="email" name="customer_email" id="customer_email" class="form-control" placeholder="monmail@mail.com" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" required>
+                <input type="email" name="customer_email" id="customer_email" class="form-control" placeholder="monmail@mail.com" pattern="(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+" value="<?php echo $identifiant_co_session; ?>" required>
                 <div class="invalid-feedback">
                   Format de l'email invalide !
                 </div>
@@ -180,7 +179,7 @@
                 <label for="customer_allergen" class="form-label">
                   <h5>Des allergènes à signaler ?</h5>
                 </label>
-                <textarea name="customer_allergen" class="form-control" id="customer_allergen" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255" required></textarea>
+                <textarea name="customer_allergen" class="form-control" id="customer_allergen" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z0-9éèê^,]/g,'');" minlength="4" maxlength="255" required><?php echo $allergen_co_session; ?></textarea>
                 <div class="invalid-feedback">
                   Vous devez précisez vos allergènes. Si aucun, mettre Aucun !
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+include('./Conf/Template/Session-starter.php');
 //Variables
 $description = "N'hésitez pas à réserver une table dans norte restaurant afin d'être le mieux accueilli possible";
 $keywords = "restaurant, gastronomique, plats, menus, reservation, manger, diner, dejeuner, produits, biologique, écologique";

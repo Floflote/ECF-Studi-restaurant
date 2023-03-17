@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+include('./Conf/Template/Session-starter.php');
 //Variables
 $description = "Créer votre compte client afin de gagner du temps lors d'une réservation";
 $keywords = "restaurant, gastronomique, plats, menus, reservation, manger, diner, dejeuner, produits, biologique, écologique, compte, creation";

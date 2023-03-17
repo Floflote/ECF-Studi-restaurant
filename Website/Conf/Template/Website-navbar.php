@@ -42,9 +42,8 @@
           <li>
             <?php
             /* Ne pas oublier de mettre le systeme de connexion */
-            $user_connected = 0;
             if ($user_connected == 1) {
-              echo "Bonjour !";
+              echo '<div class="px-3 py-1"><i class="fa-sharp fa-solid fa-utensils pe-1"></i>Bonjour !</div>';
             } else {
             ?>
             <a class="dropdown-item fw-bold" href="./Espaceconnexion.php">
@@ -59,7 +58,7 @@
             <hr class="dropdown-divider">
           </li>
           <li>
-            <a class="dropdown-item fw-bold" href="#">
+            <a class="dropdown-item fw-bold" href="Logout.php">
               <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
               Se déconnecter
             </a>
