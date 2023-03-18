@@ -15,14 +15,20 @@
 
 <!-- Links -->
 
-<section class="p-5">
-  <p><strong>Vous pouvez réserver une table avec un compte client afin d’être plus rapide.
-    </strong></p>
-  <p><strong>Vous avez un compte et n’êtes pas connecté ?
-    </strong><a class="links" href="./Espaceconnexion.php">Se connecter</a></p>
-  <p><strong>Pas encore de compte ?
-    </strong><a class="links" href="./Creationcompte.php">En créer un ici</a></p>
-</section>
+<?php
+if ($user_connected == 0) {
+?>
+  <section class="p-5">
+    <p><strong>Vous pouvez réserver une table avec un compte client afin d’être plus rapide.
+      </strong></p>
+    <p><strong>Vous avez un compte et n’êtes pas connecté ?
+      </strong><a class="links" href="./Espaceconnexion.php">Se connecter</a></p>
+    <p><strong>Pas encore de compte ?
+      </strong><a class="links" href="./Creationcompte.php">En créer un ici</a></p>
+  </section>
+<?php
+}
+?>
 
 <!-- Form reservation -->
 
