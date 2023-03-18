@@ -1,7 +1,13 @@
 <?php
-$statement_website_setting_content = $pdo->prepare("SELECT * FROM website_setting");
-$statement_website_setting_content->execute();
-$website_setting_content = $statement_website_setting_content->fetch();
+
+try {
+  $statement_website_setting_content = $pdo->prepare("SELECT * FROM website_setting");
+  $statement_website_setting_content->execute();
+  $website_setting_content = $statement_website_setting_content->fetch();
+} catch (Exception $e) {
+  file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+  echo 'Une erreur s\'est produite, veuillez réessayer: ';
+}
 ?>
 
 <!-- Top section -->
@@ -91,10 +97,14 @@ $website_setting_content = $statement_website_setting_content->fetch();
       <div>
         <ul class="text-center mb-4">
           <?php
-
-          $statement_category = $pdo->prepare("SELECT * FROM category");
-          $statement_category->execute();
-          $categories = $statement_category->fetchAll();
+          try {
+            $statement_category = $pdo->prepare("SELECT * FROM category");
+            $statement_category->execute();
+            $categories = $statement_category->fetchAll();
+          } catch (Exception $e) {
+            file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+            echo 'Une erreur s\'est produite, veuillez réessayer: ';
+          }
 
           $x = 0;
 
@@ -134,9 +144,14 @@ $website_setting_content = $statement_website_setting_content->fetch();
 
             echo '<div class="choice_category_content" id="' . str_replace(' ', '', $category['category_name']) . '" style=display:block>';
 
-            $statement_product = $pdo->prepare("SELECT * FROM product WHERE category_id = ?");
-            $statement_product->execute(array($category['category_id']));
-            $products = $statement_product->fetchAll();
+            try {
+              $statement_product = $pdo->prepare("SELECT * FROM product WHERE category_id = ?");
+              $statement_product->execute(array($category['category_id']));
+              $products = $statement_product->fetchAll();
+            } catch (Exception $e) {
+              file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+              echo 'Une erreur s\'est produite, veuillez réessayer: ';
+            }
 
 
             if ($statement_product->rowCount() == 0) {
@@ -182,9 +197,14 @@ $website_setting_content = $statement_website_setting_content->fetch();
 
             echo '<div class="choice_category_content" id="' . str_replace(' ', '', $category['category_name']) . '">';
 
-            $statement_product = $pdo->prepare("SELECT * FROM product WHERE category_id = ?");
-            $statement_product->execute(array($category['category_id']));
-            $products = $statement_product->fetchAll();
+            try {
+              $statement_product = $pdo->prepare("SELECT * FROM product WHERE category_id = ?");
+              $statement_product->execute(array($category['category_id']));
+              $products = $statement_product->fetchAll();
+            } catch (Exception $e) {
+              file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+              echo 'Une erreur s\'est produite, veuillez réessayer: ';
+            }
 
             if ($statement_product->rowCount() == 0) {
               echo "<div class = 'no_product m-auto'>Pas de produits disponibles encore, revenez bientôt !</div>";
@@ -242,9 +262,14 @@ $website_setting_content = $statement_website_setting_content->fetch();
     <div class="row justify-content-center">
 
       <?php
-      $statement_menu = $pdo->prepare("SELECT * FROM menu");
-      $statement_menu->execute();
-      $menus = $statement_menu->fetchAll();
+      try {
+        $statement_menu = $pdo->prepare("SELECT * FROM menu");
+        $statement_menu->execute();
+        $menus = $statement_menu->fetchAll();
+      } catch (Exception $e) {
+        file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+        echo 'Une erreur s\'est produite, veuillez réessayer: ';
+      }
 
       foreach ($menus as $menu) {
       ?>
@@ -302,9 +327,14 @@ $website_setting_content = $statement_website_setting_content->fetch();
     <h2 class="text-center mb-4">Galerie d'images</h2>
 
     <?php
-    $statement_pictures_gal = $pdo->prepare("SELECT * FROM picture");
-    $statement_pictures_gal->execute();
-    $pictures_gal = $statement_pictures_gal->fetchAll();
+    try {
+      $statement_pictures_gal = $pdo->prepare("SELECT * FROM picture");
+      $statement_pictures_gal->execute();
+      $pictures_gal = $statement_pictures_gal->fetchAll();
+    } catch (Exception $e) {
+      file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+      echo 'Une erreur s\'est produite, veuillez réessayer: ';
+    }
 
     echo "<div class = 'row justify-content-center'>";
 

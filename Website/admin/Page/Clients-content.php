@@ -1,7 +1,12 @@
 <?php
-$statementcusto = $pdo->prepare("SELECT * FROM customer");
-$statementcusto->execute();
-$customers = $statementcusto->fetchAll();
+try {
+  $statementcusto = $pdo->prepare("SELECT * FROM customer");
+  $statementcusto->execute();
+  $customers = $statementcusto->fetchAll();
+} catch (Exception $e) {
+  file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+  echo 'Une erreur est survenue';
+}
 ?>
 
 <div style="padding:20px">

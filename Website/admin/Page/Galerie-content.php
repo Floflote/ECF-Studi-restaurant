@@ -1,7 +1,12 @@
 <?php
-$statementpicture = $pdo->prepare("SELECT * FROM picture");
-$statementpicture->execute();
-$pictures = $statementpicture->fetchAll();
+try {
+  $statementpicture = $pdo->prepare("SELECT * FROM picture");
+  $statementpicture->execute();
+  $pictures = $statementpicture->fetchAll();
+} catch (Exception $e) {
+  file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+  echo 'Une erreur est survenue';
+}
 ?>
 
 <div style="padding:20px">
@@ -210,6 +215,7 @@ if (isset($_POST['add_new_picture']) && $_SERVER['REQUEST_METHOD'] == 'POST' && 
 
 <?php
   } catch (Exception $e) {
-    echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+    file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+    echo 'Une erreur est survenue';
   }
 }

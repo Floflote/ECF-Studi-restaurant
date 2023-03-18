@@ -1,7 +1,12 @@
 <?php
-$statementcat = $pdo->prepare("SELECT * FROM category");
-$statementcat->execute();
-$categories = $statementcat->fetchAll();
+try {
+  $statementcat = $pdo->prepare("SELECT * FROM category");
+  $statementcat->execute();
+  $categories = $statementcat->fetchAll();
+} catch (Exception $e) {
+  file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+  echo 'Une erreur est survenue';
+}
 ?>
 
 <div style="padding:20px">

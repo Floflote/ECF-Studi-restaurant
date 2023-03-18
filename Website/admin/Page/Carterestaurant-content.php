@@ -7,9 +7,14 @@ if (isset($_GET['do']) && in_array(htmlspecialchars($_GET['do']), array('Add', '
 }
 
 if ($task == 'Control') {
-  $statementproduct = $pdo->prepare("SELECT * FROM product, category WHERE category.category_id = product.category_id");
-  $statementproduct->execute();
-  $products = $statementproduct->fetchAll();
+  try {
+    $statementproduct = $pdo->prepare("SELECT * FROM product, category WHERE category.category_id = product.category_id");
+    $statementproduct->execute();
+    $products = $statementproduct->fetchAll();
+  } catch (Exception $e) {
+    file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+    echo 'Une erreur est survenue';
+  }
 ?>
 
   <div style="padding:20px">
@@ -203,9 +208,14 @@ elseif ($task == 'Add') {
 
               <div style="margin-bottom: 1rem;">
                 <?php
-                $statementcat = $pdo->prepare("SELECT * FROM category");
-                $statementcat->execute();
-                $choice_categories = $statementcat->fetchAll();
+                try {
+                  $statementcat = $pdo->prepare("SELECT * FROM category");
+                  $statementcat->execute();
+                  $choice_categories = $statementcat->fetchAll();
+                } catch (Exception $e) {
+                  file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+                  echo 'Une erreur est survenue';
+                }
                 ?>
                 <label for="product_category">Catégorie</label>
                 <select class="form-select" name="product_category">
@@ -368,7 +378,8 @@ elseif ($task == 'Add') {
 
     <?php
     } catch (Exception $e) {
-      echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+      file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+      echo 'Une erreur est survenue';
     }
   }
 }
@@ -378,10 +389,15 @@ elseif ($task == 'Add') {
 elseif ($task == 'Modify') {
   $product_id = (isset($_GET['product_id']) && is_numeric($_GET['product_id'])) ? intval($_GET['product_id']) : 0;
   if ($product_id) {
-    $statementmodify = $pdo->prepare('SELECT * FROM product WHERE product_id = ?');
-    $statementmodify->execute(array($product_id));
-    $product = $statementmodify->fetch();
-    $count = $statementmodify->rowCount();
+    try {
+      $statementmodify = $pdo->prepare('SELECT * FROM product WHERE product_id = ?');
+      $statementmodify->execute(array($product_id));
+      $product = $statementmodify->fetch();
+      $count = $statementmodify->rowCount();
+    } catch (Exception $e) {
+      file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+      echo 'Une erreur est survenue';
+    }
     if ($count > 0) {
     ?>
 
@@ -416,9 +432,14 @@ elseif ($task == 'Modify') {
 
                   <div style="margin-bottom: 1rem;">
                     <?php
-                    $statementcat = $pdo->prepare("SELECT * FROM category");
-                    $statementcat->execute();
-                    $choice_categories = $statementcat->fetchAll();
+                    try {
+                      $statementcat = $pdo->prepare("SELECT * FROM category");
+                      $statementcat->execute();
+                      $choice_categories = $statementcat->fetchAll();
+                    } catch (Exception $e) {
+                      file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+                      echo 'Une erreur est survenue';
+                    }
                     ?>
                     <label for="product_category">Catégorie</label>
                     <select class="form-select" name="product_category">
@@ -582,7 +603,8 @@ elseif ($task == 'Modify') {
           <?php
 
           } catch (Exception $e) {
-            echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+            file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+            echo 'Une erreur est survenue';
           }
         } else {
           $picture_m = rand(0, 100000) . '_' . $_FILES['product_picture']['name'];
@@ -602,7 +624,8 @@ elseif ($task == 'Modify') {
 
 <?php
           } catch (Exception $e) {
-            echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+            file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+            echo 'Une erreur est survenue';
           }
         }
       }

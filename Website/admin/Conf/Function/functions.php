@@ -5,8 +5,13 @@
 function countItems($item, $table)
 {
   global $pdo;
-  $statementCount = $pdo->prepare("SELECT COUNT($item) FROM $table");
-  $statementCount->execute();
+  try {
+    $statementCount = $pdo->prepare("SELECT COUNT($item) FROM $table");
+    $statementCount->execute();
+  } catch (Exception $e) {
+    file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+    echo 'Une erreur est survenue';
+  }
 
   return $statementCount->fetchColumn();
 }
@@ -15,8 +20,13 @@ function countItems($item, $table)
 function checkItem($select, $from, $value)
 {
   global $pdo;
-  $statementCheck = $pdo->prepare("SELECT $select FROM $from WHERE $select = ? ");
-  $statementCheck->execute(array($value));
+  try {
+    $statementCheck = $pdo->prepare("SELECT $select FROM $from WHERE $select = ? ");
+    $statementCheck->execute(array($value));
+  } catch (Exception $e) {
+    file_put_contents('dblogs.log', $e->getMessage() . "\n", FILE_APPEND);
+    echo 'Une erreur est survenue';
+  }
 
   return $statementCheck->rowCount();
 }

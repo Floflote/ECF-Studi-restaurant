@@ -138,11 +138,17 @@
 
         /* Verify mail does not already exist */
         /* Check mail in database */
-        $statementcustomail = $pdo->prepare("SELECT customer_mail FROM customer");
-        $statementcustomail->execute();
-        $verifycustomails = $statementcustomail->fetchAll();
-        $mailexist = 0;
-        $testmail = $creaco_mail;
+
+        try {
+          $statementcustomail = $pdo->prepare("SELECT customer_mail FROM customer");
+          $statementcustomail->execute();
+          $verifycustomails = $statementcustomail->fetchAll();
+          $mailexist = 0;
+          $testmail = $creaco_mail;
+        } catch (Exception $e) {
+          file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+          echo 'Une erreur s\'est produite, veuillez réessayer: ';
+        }
 
         foreach ($verifycustomails as $verifycustomail) {
           if ($testmail == $verifycustomail['customer_mail']) {
@@ -177,7 +183,8 @@
 
       <?php
           } catch (Exception $e) {
-            echo 'Une erreur s\'est produite, veuillez réessayer: ' . $e->getMessage();
+            file_put_contents('error.log', $e->getMessage() . "\n", FILE_APPEND);
+            echo 'Une erreur s\'est produite, veuillez réessayer: ';
           }
         }
       }
