@@ -5,9 +5,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;">
-  <div class="text-center p-5">
+  <div class="text-center py-5">
     <h1
-      style="font-size: 60px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px;">
+      style="font-size: 50px; color: white; text-transform: uppercase; paint-order: stroke fill; stroke-color: #a4872c; stroke-width: 5px;">
       Réserver une table
     </h1>
   </div>
