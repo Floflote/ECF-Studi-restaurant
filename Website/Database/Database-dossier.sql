@@ -4,7 +4,7 @@ CREATE TABLE admin
 (
   admin_id INT(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   admin_email VARCHAR(255) NOT NULL,
-  admin_password VARCHAR(60)
+  admin_password VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE website_setting
